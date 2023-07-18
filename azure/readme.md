@@ -1,7 +1,6 @@
 ### Sample terraform module
 Module is used to peer Azure VNETs
 
-####Javascript　
 ```javascript
 main.tf 
 ...
@@ -20,6 +19,8 @@ module "vnet-peerings" {
   }
 }
 ...
+
+
 modules/vnet-peerer/main.tf
 ....
 resource "azurerm_virtual_network_peering" "lhs-rhs" {
