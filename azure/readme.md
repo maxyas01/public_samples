@@ -1,7 +1,6 @@
 ### Sample terraform module used for Azure VNET peering together with key implementation details
-
 ```terraform
-main.tf 
+#main.tf 
 ...
 module "vnet-peerings" {
   source  = "./modules/vnet-peerer"
@@ -19,8 +18,8 @@ module "vnet-peerings" {
 }
 ...
 
-
-modules/vnet-peerer/main.tf
+#modules/vnet-peerer/main.tf
+#use of can() function enables handling of optional paramerers
 ....
 resource "azurerm_virtual_network_peering" "lhs-rhs" {
   for_each            = var.vnets_to_integrate
@@ -40,7 +39,7 @@ resource "azurerm_virtual_network_peering" "lhs-rhs" {
 ### Sample terraform module used for Azure private DNS zones together with key implementation details
 In this example a number of different private dns zones are required, they also integrate with different VNETs
 ```terraform
-main.tf 
+#main.tf 
 ...
 module "private_dns_zones" {
   source  = "./modules/private_dns"
@@ -60,8 +59,9 @@ module "second_set_pdns" {
   create_webapp_zone  = true
   vnets_to_integrate  = [module.vnet-hub.id]
 }
+....
 
-modules/private_dns/main.tf
+# modules/private_dns/main.tf
 ....
 locals {
 #cartesian product is created to enable subsequent use of for_each in the azurerm_private_dns_zone_virtual_network_link resource block
