@@ -1,4 +1,4 @@
-### Sample terraform module used for Azure VNET peering together with key implementation details
+### 1. Sample terraform module used for Azure VNET peering together with key implementation details
 ```terraform
 #main.tf 
 ...
@@ -36,8 +36,8 @@ resource "azurerm_virtual_network_peering" "lhs-rhs" {
 }
 ...
 ```
-### Sample terraform module used for Azure private DNS zones together with key implementation details
-In this example a number of different private dns zones are required, they also integrate with different VNETs
+### 2. Sample terraform module used for Azure private DNS zones together with key implementation details
+In this example a number of different private dns zones are required to be created, they also integrate with different VNETs
 ```terraform
 #main.tf 
 ...
